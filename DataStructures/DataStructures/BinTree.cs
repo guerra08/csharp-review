@@ -66,6 +66,16 @@ namespace DataStructures
             if(n.Right != null) { preFixLeft(n.Right); }
         }
 
+        public void preFixRight(Node n)
+        {
+            if (n != null)
+            {
+                Console.Write(n.Value + " - ");
+            }
+            if (n.Left != null) { preFixRight(n.Right); }
+            if (n.Right != null) { preFixRight(n.Left); }
+        }
+
         public class Node
         {
             public int Value { get; set; }
