@@ -18,7 +18,7 @@ namespace DataStructures
             Head = null;
         }
 
-        public void addOnFree(int val) { 
+        public void AddOnFree(int val) { 
         
             if(Head == null)
             {
@@ -34,46 +34,59 @@ namespace DataStructures
             }
             else
             {
-                _addOnFree(Head.Left, val);
-                _addOnFree(Head.Right, val);
+                Node left = Head.Left;
+                Node right = Head.Right;
+                _addOnFree(left, right, val);
             }
 
         }
 
-        private void _addOnFree(Node n, int val) {
-            if (n.Left == null)
+        private void _addOnFree(Node left, Node right, int val) {
+            if(left.Left == null)
             {
-                n.Left = new Node(val);
+                left.Left = new Node(val);
+                return;
             }
-            else if (n.Right == null)
+            else if (left.Right == null)
             {
-                n.Right = new Node(val);
+                left.Right = new Node(val);
+                return;
+            }
+            else if(right.Left == null)
+            {
+                right.Left = new Node(val);
+                return;
+            }
+            else if (right.Right == null)
+            {
+                right.Right = new Node(val);
+                return;
             }
             else
             {
-                _addOnFree(n.Left, val);
-                _addOnFree(n.Right, val);
+                _addOnFree(left.Left, left.Right, val);
+                _addOnFree(right.Left, right.Right, val);
             }
         }
 
-        public void preFixLeft(Node n)
+        public void PreFixLeft(Node n)
         {
-            if(n != null)
-            {
-                Console.Write(n.Value + " - ");
-            }
-            if (n.Left != null) { preFixLeft(n.Left); }
-            if(n.Right != null) { preFixLeft(n.Right); }
+            if (n == null) return;
+
+            Console.Write(n.Value + " - ");
+
+            PreFixLeft(n.Left);
+            PreFixLeft(n.Right);
         }
 
-        public void preFixRight(Node n)
+        public void PreFixRight(Node n)
         {
-            if (n != null)
-            {
-                Console.Write(n.Value + " - ");
-            }
-            if (n.Left != null) { preFixRight(n.Right); }
-            if (n.Right != null) { preFixRight(n.Left); }
+            if (n == null) return;
+
+            Console.Write(n.Value + " - ");
+
+            PreFixRight(n.Right);
+            PreFixRight(n.Left); 
         }
 
         public class Node

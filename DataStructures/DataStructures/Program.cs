@@ -7,11 +7,13 @@ namespace DataStructures
         static void Main(string[] args)
         {
             BinTree t = new BinTree(15);
-            t.addOnFree(20);
-            t.addOnFree(25);
-            t.addOnFree(35);
-            t.addOnFree(256);
-            t.preFixLeft(t.Head);
+            t.AddOnFree(20);
+            t.AddOnFree(25);
+            t.AddOnFree(35);
+            t.AddOnFree(256);
+            t.PreFixLeft(t.Head);
+            Console.WriteLine("\n------");
+            t.PreFixRight(t.Head);
 
         }
     }
