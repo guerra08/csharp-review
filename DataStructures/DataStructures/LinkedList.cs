@@ -68,6 +68,43 @@ namespace DataStructures
 
         }
 
+        public Boolean RemoveFirstFound(int val) 
+        {
+            if (Count == 0) return false;
+            else
+            {
+                int c = 0;
+                Node n = Head;
+                while (c < Count)
+                {
+                    if (c == 0 && n.Val == val)
+                    {
+                        Head = n.Next;
+                        Head.Prev = null;
+                        Count--;
+                        return true;
+                    }
+                    else if (c == Count - 1 && n.Val == val)
+                    {
+                        Tail = n.Prev;
+                        Tail.Next = null;
+                        Count--;
+                        return true;
+                    }
+                    else if (n.Val == val)
+                    {
+                        n.Prev.Next = n.Next;
+                        n.Next.Prev = n.Prev;
+                        Count--;
+                        return true;
+                    }
+                    c++;
+                    n = n.Next;
+                }
+            }
+            return false;
+        }
+
         public Boolean Exists(int val)
         {
             Node n = new Node(val);

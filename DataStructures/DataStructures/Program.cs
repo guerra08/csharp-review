@@ -20,8 +20,8 @@ namespace DataStructures
             l.Add(50);
             l.Add(15);
             l.PrintList();
-            Console.WriteLine(l.Exists(50));
-
+            l.RemoveFirstFound(50);
+            l.PrintList();
         }
     }
 }
