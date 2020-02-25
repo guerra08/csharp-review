@@ -7,10 +7,10 @@ namespace DataStructures
         static void Main(string[] args)
         {
             //BinTree t = new BinTree(15);
-            //t.AddOnFree(20);
-            //t.AddOnFree(25);
-            //t.AddOnFree(35);
-            //t.AddOnFree(256);
+            //t.Add(20);
+            //t.Add(25);
+            //t.Add(35);
+            //t.Add(256);
             //t.PreFixLeft(t.Head);
             //Console.WriteLine("\n------");
             //t.PreFixRight(t.Head);
@@ -28,13 +28,21 @@ namespace DataStructures
             //q.Dequeue();
             //q.PrintQueue();
 
-            Stack s = new Stack(10);
-            s.PrintStack();
-            s.Push(20);
-            s.Push(32);
-            s.PrintStack();
-            s.Pop();
-            s.PrintStack();
+            //Stack s = new Stack(10);
+            //s.PrintStack();
+            //s.Push(20);
+            //s.Push(32);
+            //s.PrintStack();
+            //s.Pop();
+            //s.PrintStack();
+
+            BST bt = new BST(10);
+            bt.Add(9);
+            bt.Add(17);
+            bt.Add(20);
+            bt.Add(8);
+
+            Console.WriteLine(bt.Head.Left.Right.Value);
         }
     }
 }

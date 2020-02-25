@@ -18,7 +18,7 @@ namespace DataStructures
             Head = null;
         }
 
-        public void AddOnFree(int val) { 
+        public virtual void Add(int val) { 
         
             if(Head == null)
             {
