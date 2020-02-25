@@ -68,6 +68,27 @@ namespace DataStructures
 
         }
 
+        public Boolean RemoveTail()
+        {
+            if(Count == 0)
+            {
+                return false;
+            }
+            else if(Count == 1)
+            {
+                Head = null;
+                Tail = null;
+                Count = 0;
+                return true;
+            }
+            else
+            {
+                Tail = Tail.Prev;
+                Count--;
+                return true;
+            }
+        }
+
         public Boolean RemoveFirstFound(int val) 
         {
             if (Count == 0) return false;
