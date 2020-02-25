@@ -15,13 +15,22 @@ namespace DataStructures
             //Console.WriteLine("\n------");
             //t.PreFixRight(t.Head);
 
-            LinkedList l = new LinkedList(10);
-            l.Add(25);
-            l.Add(50);
-            l.Add(15);
-            l.PrintList();
-            l.RemoveFirstFound(50);
-            l.PrintList();
+            //LinkedList l = new LinkedList(10);
+            //l.Add(25);
+            //l.Add(50);
+            //l.Add(15);
+            //l.PrintList();
+            //l.RemoveFirstFound(50);
+            //l.PrintList();
+
+            Queue q = new Queue();
+            q.Enqueue(4);
+            q.Enqueue(8);
+            q.Enqueue(16);
+            q.Enqueue(66);
+            q.PrintQueue();
+            q.Dequeue();
+            q.PrintQueue();
         }
     }
 }
