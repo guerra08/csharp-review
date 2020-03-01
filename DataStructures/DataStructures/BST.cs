@@ -23,25 +23,57 @@ namespace DataStructures
             {
                 Head = new Node(val);
             }
-            else if (Head.Left == null && Head.Value > val)
-            {
-                Head.Left = new Node(val);
-            }
-            else if (Head.Right == null && Head.Value <= val)
-            {
-                Head.Right = new Node(val);
-            }
             else
             {
-                Node left = Head.Left;
-                Node right = Head.Right;
-                _addOnFree(left, right, val);
+                if(val > Head.Value)
+                {
+                    if(Head.Right == null)
+                    {
+                        Head.Right = new Node(val);
+                    }
+                    else
+                    {
+                        _addOnFree(Head.Right, val);
+                    }
+                }
+                else
+                {
+                    if(Head.Left == null)
+                    {
+                        Head.Left = new Node(val);
+                    }
+                    else
+                    {
+                        _addOnFree(Head.Left, val);
+                    }
+                }
             }
         }
 
-        private void _addOnFree(Node left, Node right, int val)
+        private void _addOnFree(Node n, int val)
         {
-            //Rewrite logic here   
+            if(val > n.Value)
+            {
+                if(n.Right == null)
+                {
+                    n.Right = new Node(val);
+                }
+                else
+                {
+                    _addOnFree(n.Right, val);
+                }
+            }
+            else
+            {
+                if(n.Left == null)
+                {
+                    n.Left = new Node(val);
+                }
+                else
+                {
+                    _addOnFree(n.Left, val);
+                }
+            }
         }
     }
 }

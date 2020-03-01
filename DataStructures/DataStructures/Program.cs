@@ -42,7 +42,9 @@ namespace DataStructures
             bt.Add(20);
             bt.Add(8);
 
-            Console.WriteLine(bt.Head.Left.Right.Value);
+            Console.WriteLine(bt.Head.Right.Value);
+
+            //Implement tree view
         }
     }
 }
