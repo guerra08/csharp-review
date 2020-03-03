@@ -6,13 +6,9 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            Sorting s = new Sorting();
-            int[] myArray = {1,2,3,4,5,8,7};
-            int[] other = { 2, 1, 5, 6, 9, 3 };
-            s.BubbleSort(myArray);
-            //PrintArray(myArray);
-            s.InsertionSort(other);
-            PrintArray(other);
+            int[] myArray = {9,2,8,4,5};
+            Sorting.SelectionSort(myArray);
+            PrintArray(myArray);
         }
 
         static void PrintArray(int[] array)
