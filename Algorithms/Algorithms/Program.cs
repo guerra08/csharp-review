@@ -6,8 +6,9 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
+            Sorting s = new Sorting();
             int[] myArray = {9,2,8,4,5};
-            Sorting.SelectionSort(myArray);
+            s.Heapsort(myArray);
             PrintArray(myArray);
         }
 

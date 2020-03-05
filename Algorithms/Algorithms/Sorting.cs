@@ -4,7 +4,7 @@ namespace Algorithms
 {
     class Sorting
     {
-        public static void BubbleSort(int []array)
+        public void BubbleSort(int []array)
         {
             if (array.Length <= 1)
             {
@@ -39,7 +39,7 @@ namespace Algorithms
             }
         }
 
-        public static void InsertionSort(int[] array)
+        public void InsertionSort(int[] array)
         {
             for (int i = 1; i < array.Length; i++)
             {
@@ -55,7 +55,7 @@ namespace Algorithms
             }
         }
 
-        public static void MergeSort(int[] array)
+        public void MergeSort(int[] array)
         {
             if(array.Length <= 1)
             {
@@ -64,7 +64,7 @@ namespace Algorithms
             _MergeSort(array, 0, array.Length - 1);
         }
 
-        private static void _MergeSort(int[] arr, int l, int r)
+        private void _MergeSort(int[] arr, int l, int r)
         {
             if (l < r)
             {
@@ -77,7 +77,7 @@ namespace Algorithms
             }
         }
 
-        private static void _Merge(int[] arr, int start, int mid, int end)
+        private void _Merge(int[] arr, int start, int mid, int end)
         {
             int start2 = mid + 1;
 
@@ -112,7 +112,7 @@ namespace Algorithms
             }
         }
 
-        public static void SelectionSort(int []arr)
+        public void SelectionSort(int []arr)
         {
             if (arr.Length <= 1) return;
             int size = arr.Length;
@@ -141,6 +141,63 @@ namespace Algorithms
                 int aux = arr[i];
                 arr[i] = arr[k];
                 arr[k] = aux;
+            }
+        }
+
+        public void Heapsort(int[] arr)
+        {
+            Heapify(arr, arr.Length);
+
+            int s = arr.Length-1;
+            while (s > 0)
+            {
+                int aux = arr[0];
+                arr[0] = arr[s];
+                arr[s] = aux;
+                s--;
+                SiftDown(arr,0,s);
+            }
+        }
+
+        private void Heapify(int []arr, int n)
+        {
+            int s = ((n - 1) / 2);
+
+            while(s >= 0)
+            {
+                SiftDown(arr, s, n - 1);
+                s--;
+            }
+        }
+
+        private void SiftDown(int []arr, int s, int e)
+        {
+            int r = s;
+
+            while(2 * r + 1 <= e)
+            {
+                int c = 2 * r + 1;
+                int swap = r;
+
+                if(arr[swap] < arr[c])
+                {
+                    swap = c;
+                }
+                if(c+1 <= e && arr[swap] < arr[c + 1])
+                {
+                    swap = c + 1;
+                }
+                if(swap == r)
+                {
+                    return;
+                }
+                else
+                {
+                    int aux = arr[r];
+                    arr[r] = arr[swap];
+                    arr[swap] = aux;
+                    r = swap;
+                }
             }
         }
 
